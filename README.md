@@ -1,2 +1,2 @@
 # AIL
-AiL
+AiL (Demostration Project)
