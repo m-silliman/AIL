@@ -1,0 +1,24 @@
+﻿{
+  "EmailSettings": {
+    "Enable":  false,
+    "MailServer": "",
+    "MailFrom": "",
+    "MailTo": [
+      "",
+      ""
+    ],
+    "Port": 25,
+    "EnableSsl": true,
+    "UserName": "someusername",
+    "Password": "somepassword"
+  },
+
+  "SmsSettings": {
+    "Enable":  false,
+    "AccountSID": "",
+    "AuthToken": "",
+    "FromNumber": "",
+    "PhoneNumbers": [ "", "" ]
+  }
+
+}

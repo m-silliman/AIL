@@ -1,0 +1,17 @@
+﻿/*******************************************************************************************************
+* EndpointScript: With function support                                                                *
+********************************************************************************************************
+*                                                                                                      *
+********************************************************************************************************/
+public string SayHello()
+{
+	return string.Format("Hello, the time is {0}", DateTime.Now.ToLongTimeString());
+}
+
+// EntryPoint: Required for the script to be valid
+public dynamic Execute(DM.Library.Domain.EndpointContext ctx)
+{
+    LogMessage("Info", SayHello());
+
+	return new { Message = SayHello() };
+}

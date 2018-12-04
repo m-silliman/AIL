@@ -1,0 +1,37 @@
+﻿// New message definition
+LogMessage("Debug", "Message has been started");
+
+// Gather your source data 
+
+// Create a connection to the database
+using( var db = SqlCommandFactory.GetDatabase("ConnectionStringName"))
+{ 
+	string sql = @"SELECT FIELD1, FIELD2, FIELD3DECIMAL FROM TABLENAME WHERE key = " + ctx.Data;
+
+	// Create destination objects
+	List<dynamic> records = db.SqlCommandFactory( db, sql, null );
+
+	PSI.L2.ToMES.ShiftReportL22PES shiftReport = new PSI.L2.ToMES.ShiftReportL22PES();
+
+	foreach(dynamic rec in records)
+	{
+		PSI.TypeParameterList p1 = new PSI.TypeParameterList() 
+		{ 
+			ParameterName = rec.FIELD1, 
+			ParameterValueString = rec.FIELD2,
+			ParameterValueNumber = rec.FIELD3DECIMAL
+		};
+
+		// Add a parameter to the shift report
+		shiftReport.ParameterList.Add(p1);
+
+	}
+
+	// Convert the PSI object to XML
+	string xml = ctx.DataMapper.ToXML( shiftReport );
+
+	// Send message to the queue
+	ctx.Queue.Enqueue( "MESWriteQueue", xml, "", "" );
+
+	LogMessage("Debug", "Message has completed");
+}

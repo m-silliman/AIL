@@ -1,0 +1,12 @@
+﻿'New module type;  this is a c# class.  It is possible to import custom namespaces and define functions; VB_Event_Module
+
+Public Sub Execute(ctx As ScriptContext) Implements IDispatchManagerScript.Execute
+
+	LogMessage(ScriptLogSeverityEnum.Info, ctx.Data)
+
+	dim retMessage as String
+	
+	retMessage = "Hello world"
+	    
+	
+End Sub

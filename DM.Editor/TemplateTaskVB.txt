@@ -1,0 +1,5 @@
+﻿' New message definition
+LogMessage("Debug", "Task Execution has been started")
+
+
+LogMessage("Debug", "Task Execution has completed")

@@ -1,0 +1,7 @@
+﻿'New endpoint script rev 2;  this is a c# class.  It is possible to import custom namespaces and define functions; VB_Endpoint
+
+dim obj as string
+
+obj = "test"
+
+return obj

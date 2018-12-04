@@ -1,0 +1,3 @@
+﻿LogMessage("Info", SayHello());
+
+return new { Message = SayHello() };

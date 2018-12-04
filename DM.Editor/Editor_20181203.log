@@ -1,0 +1,7 @@
+[DM.ScriptEditor.exe] - [1] - [ScriptEngine] - [Debug] - [12/3/2018 9:37:24 PM] - Searching folder: .\DynamicDll
+[DM.ScriptEditor.exe] - [8] - [ScriptEngine] - [Info] - [12/3/2018 9:42:33 PM] - CreateInstance: DM.Library.GeneratedScripts.First_Event
+[DM.ScriptEditor.exe] - [8] - [ScriptEngine] - [Debug] - [12/3/2018 9:42:33 PM] - Retreived Compiled: First_Event.DispatchMessage with haskey: 61131791
+[DM.ScriptEditor.exe] - [3] - [ScriptEngine] - [Info] - [12/3/2018 9:43:01 PM] - CreateInstance: DM.Library.GeneratedScripts.First_Event_Module
+[DM.ScriptEditor.exe] - [3] - [ScriptEngine] - [Debug] - [12/3/2018 9:43:01 PM] - Retreived Compiled: First_Event_Module.DispatchMessage with haskey: 66153672
+[DM.ScriptEditor.exe] - [4] - [ScriptEngine] - [Info] - [12/3/2018 9:43:05 PM] - CreateInstance: DM.Library.GeneratedScripts.First_Event_Module
+[DM.ScriptEditor.exe] - [4] - [ScriptEngine] - [Debug] - [12/3/2018 9:43:05 PM] - Retreived Compiled: First_Event_Module.DispatchMessage with haskey: 63888170

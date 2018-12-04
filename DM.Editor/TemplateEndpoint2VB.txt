@@ -1,0 +1,22 @@
+﻿'New endpoint script rev 2;  this is a c# class.  It is possible to import custom namespaces and define functions; VB_Endpoint_Module
+'New endpoint script rev 2;  this is a c# class.  It is possible to import custom namespaces and define functions; New_EndpointModule_VB
+Public Class VbClassToSerialize
+	Public Property Name  as String
+		
+	Public Property Price as Single
+		
+End Class
+
+Public Function Execute(Ctx As EndpointContext) As <Dynamic> Object Implements IEndpointScript.Execute
+
+    ' New message definition
+    LogMessage("Debug", "Message has been started")
+	
+	Dim myClassObject as new VbClassToSerialize
+
+	myClassObject.Name = "VB.NET"
+	myClassObject.Price = 0.99
+	
+    Return myClassObject
+
+End Function
