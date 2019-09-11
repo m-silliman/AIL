@@ -127,3 +127,10 @@ To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fus
 [DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 9:54:36 AM] - Memory usage: 54 MB
 [DM.Service.exe] - [7] - [DispatchMessageEventProcessor] - [Info] - [9/11/2019 9:54:46 AM] - 0 records purged.
 [DM.Service.exe] - [7] - [DispatchMessageEventProcessor] - [Info] - [9/11/2019 9:54:46 AM] - 0 records purged.
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 9:55:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 9:56:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 9:57:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 9:58:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 9:59:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:00:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:01:36 AM] - Memory usage: 54 MB
