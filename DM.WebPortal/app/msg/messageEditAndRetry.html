@@ -1,0 +1,43 @@
+<style>
+    .ace_editor2
+    {
+        height: 150px;
+        width: 500px;
+    }
+
+</style>
+
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Retry Script: {{vm.Message.Name}}</h3>
+</div>
+
+<div class="modal-body" id="modal-body">
+
+    <div class="panel panel-default">
+        <div class="panel-header">Feedback</div>
+        <div class="panel-body">
+            <ul>
+                <li>Created At: {{vm.Message.CreateTime}}</li>
+                <li>Last Processed: {{vm.Message.ProcessedTime}}</li>
+                <li>Status: {{vm.Message.Status}}</li>
+                <li><div class="text-danger">{{vm.Message.Errors}}</div></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <form role="form">
+        <div class="form-group">
+            <div style="height: 200px;" ng-model="vm.Message.Data" ui-ace="{ onLoad : aceLoaded, theme:'crimson editor' }" ></div>
+        </div>
+    </form>
+
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn pull-left" ng-show="vm.isJson">JSON Message: {{vm.isJson}}</button>
+    <button ng-show="vm.hasMessagePriv == true" class="btn btn-primary" type="button" ng-click="ok()">Retry Existing</button>
+    <button ng-show="vm.hasMessagePriv == true" class="btn btn-success" type="button" ng-click="okNew()">Create as New Event</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+</div>

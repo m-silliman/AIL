@@ -1,0 +1,142 @@
+
+<div class="page page-table" data-ng-controller="editCtrl">
+
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Source Data Browser</strong></div>
+
+        <div class="table-filters">
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-6">
+                        <label for="cmbNatGasSource">Source Data</label>   
+                        <select  class="form-control" id="cmbNatGasSource" data-ng-model="natGasSource"
+                                data-ng-options="a.Name for a in vm.NatGasSources"></select>
+
+
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <label for="startDate">Start</label>    
+                        <span class="input-group">
+                            <input id="startDate" type="text" class="form-control" uib-datepicker-popup ng-model="vm.startDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <label for="endDate">End</label>    
+                        <span class="input-group">
+                            <input id="endDate" type="text" class="form-control" uib-datepicker-popup ng-model="vm.endDate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <label for="mainbutton">&nbsp;</label>
+                        <span class="input-group"> 
+                            <button id="mainbutton" class="btn btn-info" ng-click="findRecords()">Find Matching Records</button>
+                             &nbsp;
+                            <button id="exportbutton" class="btn btn-success  pull-right" ng-click="exportData()"><i class="glyphicon glyphicon-export"></i>CSV</button>
+                          </span>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+
+        <table class="table table-condensed table-bordered table-striped table-responsive">
+            <thead >
+                <tr>
+                    <th><div class="th">
+                        Date
+                        <span class="fa fa-angle-up"
+                              data-ng-click="order('ReadingDateAndTime')"
+                              data-ng-class="{active: row == 'ReadingDateAndTime'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click="order('-ReadingDateAndTime')"
+                              data-ng-class="{active: row == '-ReadingDateAndTime'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Data Reading (SCF)
+                        <span class="fa fa-angle-up"
+                              data-ng-click="order('DataReading')"
+                              data-ng-class="{active: row == 'DataReading'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click="order('-DataReading')"
+                              data-ng-class="{active: row == '-DataReading'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Override (SCF)
+                        <span class="fa fa-angle-up"
+                              data-ng-click="order('OverrideValue')"
+                              data-ng-class="{active: row == 'OverrideValue'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click="order('-OverrideValue')"
+                              data-ng-class="{active: row == '-OverrideValue'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Override By                       
+                    </div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="itm in currentPageDataReadings">
+                    <td>{{itm.ReadingDateAndTime | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{itm.DataReading}}</td>
+                    <td>
+                        <button ng-click="openEditor(itm)" ng-show="itm.OverrideValue == null" class="btn btn-xs btn-skype">Override</button>
+                        <button ng-click="openEditor(itm)" ng-show="itm.OverrideValue != null" class="btn btn-xs btn-danger">{{itm.OverrideValue}}</button>
+                    </td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        Show 
+                        <select data-ng-model="numPerPage"
+                                data-ng-options="num for num in numPerPageOpt"
+                                data-ng-change="onNumPerPageChange()">
+                        </select> 
+                        entries per page
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <uib-pagination class="pagination-sm"
+                                ng-model="currentPage"
+                                total-items="filteredReadings.length"
+                                max-size="4"
+                                ng-change="select(currentPage)"
+                                items-per-page="numPerPage"
+                                rotate="false"
+                                previous-text="&lsaquo;" next-text="&rsaquo;"
+                                boundary-links="true"></uib-pagination>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <ul>
+            <li ng-repeat="item in $ctrl.items">
+                <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+            </li>
+        </ul>
+        Selected: <b>{{ $ctrl.selected.item }}</b>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+</script>

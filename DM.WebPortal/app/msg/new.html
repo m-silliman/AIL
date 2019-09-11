@@ -1,0 +1,39 @@
+<style>
+    @media print {
+        .visible-print  { display: inherit !important; }
+        .hidden-print   { display: none !important; }
+    }
+    .ace_editor { height: 220px; }
+</style>
+
+<div class="page page-dashboard" data-ng-controller="MsgEditCtrl">
+
+    <div class="panel panel-default">
+        <div class="panel-heading ">
+            <span class="glyphicon glyphicon-th"></span> Execute Script </strong>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label class="sr-only"></label>
+                <p class="form-control-static">Select Event</p>
+            </div>
+            <div class="form-group">
+                <select ng-model="vm.selectedScript" ng-options="s.Name for s in vm.availableScripts">
+                </select>
+            </div>
+
+            <div ng-model="vm.contextData" ui-ace="{ onLoad : aceLoaded, mode: 'csharp',  theme:'crimson editor',}" ></div>
+        </div>
+
+        <div class="panel-footer">Commands
+            <button ng-click="execute()" ng-show="vm.selectedScript != null" class="pull-right btn-xs btn-danger">Execute Script</button>
+        </div>
+
+        <div class="panel-body">
+            <div class="inset">{{vm.results}}</div>
+        </div>
+    </div>
+
+</div>

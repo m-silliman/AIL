@@ -1,0 +1,71 @@
+<header class="top-header clearfix no-print">
+
+    <!-- Logo -->
+    <div class="logo"
+         ng-class="{ 'bg-dark': ['11','31'].indexOf(admin.skin) >= 0,
+                     'bg-white': admin.skin === '21',
+                     'bg-primary': ['12','22','32'].indexOf(admin.skin) >= 0,
+                     'bg-success': ['13','23','33'].indexOf(admin.skin) >= 0,
+                     'bg-info-alt': ['14','24','34'].indexOf(admin.skin) >= 0,
+                     'bg-warning': ['15','25','35'].indexOf(admin.skin) >= 0,
+                     'bg-danger': ['16','26','36'].indexOf(admin.skin) >= 0,
+                    }">
+        <a href="#/">
+
+            <span class="logo-icon glyphicon glyphicon-signal"></span>
+            <span class="logo-text">{{main.brand}}</span>
+        </a>
+    </div>
+
+    <!-- needs to be put after logo to make it work -->
+    <div class="menu-button" toggle-off-canvas>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+
+    <div class="top-nav">
+        <ul class="nav-left list-unstyled">
+            <li>
+                <a href="#/" data-toggle-nav-collapsed-min
+                             class="toggle-min"
+                             ><i class="ti-menu"></i></a>
+            </li>
+            <li class="search-box visible-md visible-lg">
+                <div class="input-group ">
+                <input ng-model="vm.remoteHost" type="text" style="width: 250px;background-color: #d6e9c6;" class="form-control" placeholder="Ail Hostname">
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary btn-success" type="button" ng-click="onButtonClicked()"><i class="ti-bolt"></i></button>
+                        <span>&nbsp;</span>
+                        <button class="btn btn-danger" ng-show="vm.errorMessage != null">{{vm.errorMessage}}</button>
+                    </span>
+                </div>
+            </li>
+
+        </ul>
+
+        <ul class="nav-right pull-right list-unstyled">
+
+            <li class="dropdown text-normal nav-profile" uib-dropdown is-open="status.isopenProfile">
+                <a href="javascript:;" class="dropdown-toggle" uib-dropdown-toggle data-toggle="dropdown">
+                    <img src="images/userActive.png" alt=""  class="img-circle img30_30" ng-show="vm.isLoggedIn">
+                    <img src="images/user.png" alt=""  class="img-circle img30_30" ng-show="!vm.isLoggedIn">
+                    <span class="hidden-xs">
+                        <span>{{vm.FriendlyName}}</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu with-arrow pull-right dropdown-menu-scaleIn">
+                    <li>
+                        <a  ng-click="onLogout()">
+                            <i class="ti-export"></i>
+                            <span ng-show="vm.isLoggedIn == true" data-translate="LOG_OUT"></span>
+                            <span ng-show="vm.isLoggedIn == false" data-translate="LOG_IN"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+</header>

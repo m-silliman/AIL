@@ -1,0 +1,128 @@
+<!-- class="page page-table" -->
+<div  data-ng-controller="NotificationsCtrl">
+
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                        <strong><span class="glyphicon glyphicon-th"></span>Notifications</strong>
+                        <span class="pull-right"><button class="btn btn-xs btn-success" ng-click="saveSettings()" >Save Settings</button></span>
+                </div>
+        </div>
+
+ <form>
+    <div class="container">
+                <div class="row">
+
+                        <div class="col-md-6">
+                                <div class="panel panel-default">
+                                        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span>EMail Settings</strong>                                        
+                                        </div>
+                                        <div class="panel-body">
+                                                <div class="form-group">
+                                                        <input type="checkbox" id="enableEmailNotificationsId"
+                                                                placeholder="Check to enable or disable email notifications"
+                                                                class="form-check-input"
+                                                                ng-model="vm.EmailSettings.Enable">  
+                                                        <label for="enableEmailNotificationsId">Enable Email Notifications</label>
+                                                </div>
+
+                                                <label for="mailServer">Mail Server</label>
+                                                <input type="text" id="mailServerId"
+                                                placeholder="Enter server IP Address or name of mail server"
+                                                class="form-control"
+                                                ng-model="vm.EmailSettings.MailServer">
+
+                                                <label for="mailFromId">Mail From</label>
+                                                <input type="text" id="mailFromId"
+                                                placeholder="Enter sending email address"
+                                                class="form-control"
+                                                ng-model="vm.EmailSettings.MailFrom">
+
+                                                <label for="mailToId">Mail To (Seperate using a , or ;)</label>
+                                                <input type="text" id="mailToId"
+                                                        placeholder="List of email addresses seperated by a comma (,) or semi-colon (;)"
+                                                        class="form-control"
+                                                        ng-model="vm.MailToEntry">       
+
+                                                <label for="mailToId">Port</label>
+                                                <input type="text" id="Port"
+                                                        placeholder="Email Server Port (25 or 587 for SSL)"
+                                                        class="form-control"
+                                                        ng-model="vm.EmailSettings.Port">       
+
+                                                <div class="form-group">
+                                                        <input type="checkbox" id="enableSSLId"
+                                                                placeholder="Enable SSL port (usually 527)"
+                                                                class="form-check-input"
+                                                                ng-model="vm.EmailSettings.EnableSsl">   
+                                                        <label for="enableSSLId">Enable SSL</label>
+                                                </div>    
+
+                                                <label for="userNameId">Mail Server Username</label>
+                                                <input type="text" id="userNameId"
+                                                        placeholder="Mail server username"
+                                                        class="form-control"
+                                                        ng-model="vm.EmailSettings.UserName">       
+
+                                                <label for="passwordId">Mail Server Password</label>
+                                                <input type="password" id="passwordId"
+                                                        placeholder="Mail Server Password"
+                                                        class="form-control"
+                                                        ng-model="vm.EmailSettings.Password">       
+                                                               
+                                                <br/>
+                                                
+                                                <button ng-click="testEmail()" class="btn btn-danger">Test EMail Settings</button>
+                                        
+                                        </div>
+                                </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                                <div class="panel panel-default">
+                                        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span>SMS Twilio Settings</strong>                                                
+                                        </div>
+                                        <div class="panel-body">
+                                                <div class="form-group">
+                                                        <input type="checkbox" id="enableEmailNotificationsId"
+                                                                placeholder="Check to enable or disable email notifications"
+                                                                class="form-check-input"
+                                                                ng-model="vm.SmsSettings.Enable">  
+                                                        <label for="enableEmailNotificationsId">Enable SMS Notifications</label>
+                                                </div>
+                                                
+
+                                                <label for="accountSIDId">Account SID</label>
+                                                <input type="password" id="accountSIDId"
+                                                        placeholder="Enter account SID" autocomplete="off"
+                                                        class="form-control"
+                                                        ng-model="vm.SmsSettings.AccountSID">
+
+                                                <label for="authTokenId">Auth Token</label>
+                                                <input type="password" id="authTokenId"
+                                                        placeholder="Authorization Token" autocomplete="off"
+                                                        class="form-control"
+                                                        ng-model="vm.SmsSettings.AuthToken">
+
+                                                <label for="smsFromNumberId">Sending Phone Number</label>
+                                                <input type="text" id="smsFromNumberId"
+                                                        class="form-control"
+                                                        ng-model="vm.SmsSettings.FromNumber">       
+
+                                                <label for="mailToId">Target Phone Numbers</label>
+                                                <input type="text" id="Port"
+                                                        placeholder="List of mobile phone numbers seperated by a comma (,) or semi-colon (;)"
+                                                        class="form-control"
+                                                        ng-model="vm.SmsToEntry">       
+
+                                                <br/>
+                                                <button ng-click="testSMS()" class="btn btn-danger">Test SMS Settings</button>
+                                                
+                                        </div>
+                                </div>
+                        </div> 
+
+                </div>
+     </div>    
+ </form>
+
+</div>

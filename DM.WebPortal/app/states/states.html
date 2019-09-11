@@ -1,0 +1,63 @@
+
+
+<div class="page page-table" data-ng-controller="StatesCtrl">
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> State Filter </strong></div>
+        <div class="panel-body">
+            <form>
+                <input type="text"
+                       placeholder="Filter by results a text string"
+                       class="form-control"
+                       data-ng-model="vm.searchKeywords"
+                       data-ng-keyup="search()">
+
+                <hr/>
+
+                <label for="searchItemId">Field Name</label>
+                <input type="text" id="searchItemId"
+                       placeholder="Search by field name"
+                       class="form-control"
+                       ng-model="vm.searchItem">
+
+                <label for="searchValueId">Value</label>
+                <input type="text" id="searchValueId"
+                       placeholder="Search by field value"
+                       class="form-control"
+                       ng-model="vm.searchValue">
+
+                <br/>
+                <button ng-click="findRecords()" class="btn btn-xs btn-success">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"> <strong><span class="glyphicon glyphicon-th"></span> Current States </strong> <button ng-show="vm.hasMessagePriv == true" class="pull-right btn btn-xs btn-info" ng-click="newState()">New State</button> </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th ng-show="vm.hasMessagePriv == true" ><div class="th">Cmd</div></th>
+                    <th><div class="th">Created</div></th>
+                    <th><div class="th">Item</div></th>
+                    <th><div class="th">Value</div></th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="itm in vm.filteredRecordList">
+                    <tr>
+                        <td ng-show="vm.hasMessagePriv == true" ><button ng-click="deleteState(itm)" class="btn btn-xs btn-danger"><i class="ti-unlink"></i></button>&nbsp;{{itm.Id}}</td>
+                        <td>{{itm.CreateTime |  date:'MM/dd/yyyy h:mma'}}</td>
+                        <td>{{itm.Item}}&nbsp;</td>
+                        <td>{{itm.StateValue}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+
+

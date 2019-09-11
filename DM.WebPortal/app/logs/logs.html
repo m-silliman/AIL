@@ -1,0 +1,132 @@
+<style>
+    @media print {
+        .visible-print  { display: inherit !important; }
+        .hidden-print   { display: none !important; }
+    }
+
+    /* fatal, critical */
+    .color-red {
+        background-color: darkred !important;
+        color: white !important;
+    }
+    .color-red-fore {
+        color: darkred !important;
+    }
+
+    /* warning */
+    .color-yellow {
+        color: #b84705 !important;
+    }
+    /* info */
+    .color-blue {
+        color: darkblue !important;
+    }
+
+</style>
+
+<div class="page page-table" data-ng-controller="LogsCtrl">
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Logs Filter </strong><div class="pull-right">
+            <button ng-click="findRecords()" class="btn btn-xs btn-success">Reload</button></div><</div>
+        <div class="panel-body">
+            <form>
+                <input type="text"
+                       placeholder="Search by entering a text string"
+                       class="form-control"
+                       data-ng-model="vm.searchKeywords"
+                       data-ng-keyup="search()">
+            </form>
+        </div>
+    </div>
+
+    <section class="panel panel-dark table-dynamic"></section>
+
+        <table class="table table-bordered table-striped table-responsive">
+            <thead>
+            <tr>
+                <th><div class="th">
+                    Log Level
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('Id') "
+                          data-ng-class="{active: row == 'Id'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-Id') "
+                          data-ng-class="{active: row == '-Id'}"></span>
+                </div></th>
+                <th><div class="th">
+                    Category
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('Name') "
+                          data-ng-class="{active: row == 'Name'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-Name') "
+                          data-ng-class="{active: row == '-Name'}"></span>
+                </div></th>
+                <th><div class="th">
+                    Timestamp
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('Status') "
+                          data-ng-class="{active: row == 'Status'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-Status') "
+                          data-ng-class="{active: row == '-Status'}"></span>
+                </div></th>
+                <th><div class="th">
+                    Message
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('Data') "
+                          data-ng-class="{active: row == 'Data'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-Data') "
+                          data-ng-class="{active: row == '-Data'}"></span>
+                </div></th>
+
+            </tr>
+            </thead>
+            <tbody data-ng-repeat="itm in vm.currentPageRecords">
+
+            <tr  ng-class="{
+                        'color-red': itm.LogLevel === 'Critical' || itm.LogLevel === 'Fatal',
+                        'color-blue': itm.LogLevel === 'Info',
+                        'color-red-fore': itm.LogLevel === 'Error',
+                        'color-yellow': itm.LogLevel === 'Warning'}
+                    "  >
+                <td>{{itm.LogLevel}}</td>
+                <td>{{itm.Category}}</td>
+                <td>{{itm.Timestamp |  date:'MM/dd/yyyy h:mma'}}&nbsp;</td>
+                <td>{{itm.LogMessage}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                        <span>
+                            Show
+                            <select data-ng-model="vm.numPerPage"
+                                    data-ng-options="num for num in vm.numPerPageOpt"
+                                    data-ng-change="onNumPerPageChange()">
+                            </select>
+                            entries per page
+                        </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <uib-pagination class="pagination-sm"
+                                    ng-model="vm.currentPage"
+                                    total-items="vm.filteredRecordList.length"
+                                    max-size="4"
+                                    ng-change="select(vm.currentPage)"
+                                    items-per-page="vm.numPerPage"
+                                    rotate="false"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;"
+                                    boundary-links="true"></uib-pagination>
+                </div>
+            </div>
+        </footer>
+
+    </section>
+</div>

@@ -1,0 +1,24 @@
+﻿<div class="page page-setup" data-ng-controller="SetupCtrl">
+
+    <table class="table table-condensed table-bordered table-striped table-responsive">
+        <thead >
+        <tr>
+            <th><div class="th">Effective Date</div></th>
+            <th><div class="th">Name</div></th>
+            <th><div class="th">Emission Factor</div></th>
+            <th><div class="th">Command</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="itm in vm.natGasInfo">
+            <td>{{itm.PeriodStartDate | date: 'MM/dd/yyyy'}}</td>
+            <td>{{itm.Name}}</td>
+            <td>{{itm.EmissionFactor}}</td>
+            <td>
+                <button ng-click="openEditor(itm)" class="btn btn-xs btn-skype">Modify</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

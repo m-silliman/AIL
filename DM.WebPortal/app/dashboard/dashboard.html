@@ -1,0 +1,97 @@
+<div class="page page-dashboard" data-ng-controller="DashboardCtrl">
+
+    <section>
+        <section class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="text-thin">AiL Metric Information <div class="pull-right"><button class="btn btn-xs btn-success" ng-click="refreshData()">Refresh</button></div></h3>
+
+                        <div class="divider divider-lg divider-dashed"></div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Stats -->
+    <div class="row text-center">
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="btn-icon btn-icon-round btn-icon-sm bg-success">
+                    <span class="ti-stats-up"></span>
+                </span>
+                <div class="box-info">
+                    <p class="size-h4">{{vm.summary.ActiveMessages}} <span class="size-h4">cnt</span></p>
+                    <p class="text-muted"><span data-translate="Active"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="btn-icon btn-icon-round btn-icon-sm bg-info">
+                    <i class="ti-stats-down"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h4">{{vm.summary.TodayMessageCount}} <span class="size-h4">cnt</span></p>
+                    <p class="text-muted"><span data-translate="Lifetime"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="btn-icon btn-icon-round btn-icon-sm bg-warning">
+                    <i class="ti-stats-down"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h4">{{vm.summary.PendingAckCount}} <span class="size-h4">cnt</span></p>
+                    <p class="text-muted"><span data-translate="Pending"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="btn-icon btn-icon-round btn-icon-sm bg-danger">
+                    <i class="ti-stats-down"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h4">{{vm.summary.TodayErrorCount}} <span class="size-h4">cnt</span></p>
+                    <p class="text-muted"><span data-translate="Failed"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end stats -->
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default panel-minimal">
+                <div class="divider divider-lg"></div>
+                <div class="panel-body">
+                    <div data-echarts data-options="vm.chartOptions" style="height: 350px;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default panel-minimal">
+                <div class="divider divider-lg"></div>
+                <div class="panel-body">
+                    <div data-echarts data-options="vm.chartExeOptions" style="height: 350px;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end stats -->
+
+
+</div>

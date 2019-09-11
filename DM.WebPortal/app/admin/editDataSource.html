@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Data Source Parameters</h3>
+</div>
+
+<div class="modal-body" id="modal-body">
+    <form role="form">
+        <div class="form-group">
+            <label for="idForExpectedDaily">Daily Rate</label>
+            <input ng-model="$ctrl.vm.ExpectedDaily" type="text" class="form-control" id="idForExpectedDaily" placeholder="Enter new value to override">
+        </div>
+        <div class="form-group">
+            <label for="idForExpectedWeekly">Weekly Rate</label>
+            <input ng-model="$ctrl.vm.ExpectedWeekly" type="text" class="form-control" id="idForExpectedWeekly" placeholder="Enter new value to override">
+        </div>
+        <div class="form-group">
+            <label for="idForExpectedMonthly">Monthly Rate</label>
+            <input ng-model="$ctrl.vm.ExpectedMonthly" type="text" class="form-control" id="idForExpectedMonthly" placeholder="Enter new value to override">
+        </div>
+        <div class="form-group">
+            <label for="idForEngUnits">Eng Units</label>
+            <input ng-model="$ctrl.vm.EngUnits" type="text" class="form-control" id="idForEngUnits" placeholder="Enter new value to override">
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+    <button ng-show="$ctrl.vm.OverrideValue != null" class="btn btn-danger" type="button" ng-click="$ctrl.clear()">Clear Existing</button>
+</div>

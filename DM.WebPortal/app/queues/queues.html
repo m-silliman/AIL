@@ -1,0 +1,71 @@
+
+
+<div class="page page-table" data-ng-controller="QueuesCtrl">
+
+    <div class="panel panel-default" ng-show="vm.expiredQueues.length >0">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Locked Queues </strong> <div class="pull-right">
+            <button ng-click="getQueues()" class="btn btn-xs btn-success">Reload</button></div></div>
+        <div class="panel-body">
+            <div ng-repeat="itm in vm.expiredQueues">
+                <button ng-click="clearLock(itm, false)" class="btn btn-xs btn-danger">Delete {{itm}}</button>&nbsp;
+                <button ng-click="clearLock(itm, true)" class="btn btn-xs btn-success">Clear & Re-execute {{itm}}</button>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Active Dynamic Queues </strong> <div class="pull-right">
+            <button ng-click="getQueues()" class="btn btn-xs btn-success">Reload</button></div></div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-responsive">
+                    <thead>
+                    <tr>
+                        <th><div class="th">Queue Name</div></th>
+                        <th><div class="th">Msg Cnt</div></th>
+                        <th><div class="th">Message Name</div></th>
+                        <th><div class="th">Status</div></th>
+                        <th><div class="th">ProcTime</div></th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="itm in vm.queueList">
+                        <tr>
+                            <td><button ng-click="cancelQueue(itm)" ng-show="vm.hasMessagePriv == true" class="btn btn-xs btn-danger"><i class="ti-unlink"></i></button>&nbsp;{{itm.Name}}</td>
+                            <td>{{itm.QueueCount}}</td>
+                            <td><button ng-show="itm.Message != null && vm.hasMessagePriv == true" ng-click="cancelMessage(itm.Message)" class="btn btn-xs btn-danger"><i class="ti-minus"></i></button>&nbsp;{{itm.Message.Name}}</td>
+                            <td>{{itm.Message.Status}}&nbsp;</td>
+                            <td>{{itm.Message.ProcessedTime}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script type="text/ng-template" id="blocks/modal/dialogCancelMessage.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Cancel Message</h3>
+    </div>
+    <div class="modal-body">
+        Cancel this message will allow other messages to process.  <br/><br/>Do you want to cancel this message ?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="yes()">Yes</button>
+        <button class="btn btn-warning" type="button" ng-click="no()">No</button>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="blocks/modal/dialogCancelQueue.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Cancel Queue</h3>
+    </div>
+    <div class="modal-body">
+        Cancel this queue will cause all messages to be marked as cancelled.  Any new messages will be queued for processing.<br/><br/>  Continue with the cancellation of the queue ?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="yes()">Yes</button>
+        <button class="btn btn-warning" type="button" ng-click="no()">No</button>
+    </div>
+</script>

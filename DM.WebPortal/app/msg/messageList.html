@@ -1,0 +1,197 @@
+<style>
+    @media print {
+        .visible-print  { display: inherit !important; }
+        .hidden-print   { display: none !important; }
+    }
+    .color-red {
+        background-color: darkred !important;
+        color: white;
+    }
+    .color-blue {
+        color: blue;
+    }
+    .color-gray {
+        color: gray;
+    }
+    .color-green {
+        background-color: darkgreen !important;
+        color: white;
+    }
+    .color-yellow {
+        background-color: yellow !important;
+        color: black;
+    }
+
+</style>
+
+    <div class="page page-table" data-ng-controller="MsgCtrl">
+
+    <div class="panel panel-default">
+        <div ng-show="vm.hasMessagePriv == true" class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Commands </strong>
+            <span class="small" ng-show="vm.selectedMessages.length>0">({{vm.selectedMessages.length}} selected messages)</span>
+            <div class="pull-right">
+                <button ng-click="toggleAllSelection(1)" class="btn btn-xs btn-success">Select All</button>
+                <button ng-click="toggleAllSelection(0)" class="btn btn-xs btn-success">Clear All</button>
+            </div>
+        </div>
+        <div class="panel-body" ng-show="vm.selectedMessages.length > 0 && vm.hasMessagePriv == true">
+            <span>
+                    <button ng-click="resetStatus('NotProcessed')" class="btn btn-info">Reset to NotProcessed</button>
+                    <button ng-click="resetStatus('Failed')" class="btn btn-danger">Mark As Failed</button>
+                    <button ng-click="resetStatus('Delete')" class="btn btn-danger">Delete</button>
+            </span>
+        </div>
+
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Message Filter </strong><div class="pull-right">
+            <button ng-click="findRecords()" class="btn btn-xs btn-success">Requery Records</button></div></div>
+        <div class="panel-body">
+            <div class="table">
+                <div class="row">
+                    <div class="col-md-9">
+                        <input type="text"
+                               placeholder="Search by entering a text string"
+                               class="form-control"
+                               data-ng-model="vm.searchKeywords"
+                               data-ng-keyup="search()">
+                    </div>
+                    <div class="col-md-3">
+                        <span class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   uib-datepicker-popup="{{format}}"
+                                   ng-model="vm.selectedDate" is-open="popup1.opened"
+                                   datepicker-options="dateOptions"
+                                   ng-required="true"
+                                   close-text="Close"
+                                   alt-input-formats="altInputFormats" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <section class="panel panel-dark table-dynamic"></section>
+
+        <table class="table table-bordered table-striped table-responsive">
+            <thead>
+            <tr>
+                <th><div class="th">
+                    Id
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('Id') "
+                          data-ng-class="{active: row == 'Id'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-Id') "
+                          data-ng-class="{active: row == '-Id'}"></span>
+                </div></th>
+                <th><div class="th">
+                    <select data-ng-change="search()" ng-model="vm.messageTypeFilter">
+                            <option value="*">All</option>
+                            <option ng-repeat="mtf in vm.availableMessageTypes">{{mtf}}</option>
+                         </select>
+                </div></th>
+                <th><div class="th">
+                    Status
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('Status') "
+                          data-ng-class="{active: row == 'Status'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-Status') "
+                          data-ng-class="{active: row == '-Status'}"></span>
+                </div></th>
+                <th><div class="th">
+                    Data
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('Data') "
+                          data-ng-class="{active: row == 'Data'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-Data') "
+                          data-ng-class="{active: row == '-Data'}"></span>
+                </div></th>
+                <th><div class="th">Q</div></th>
+                <th><div class="th">
+                    Create Time
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('CreateTime') "
+                          data-ng-class="{active: row == 'CreateTime'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-CreateTime') "
+                          data-ng-class="{active: row == '-CreateTime'}"></span>
+                </div></th>
+                <th><div class="th">
+                    Proc Time
+                    <span class="fa fa-angle-up"
+                          data-ng-click=" order('CreateTime') "
+                          data-ng-class="{active: row == 'CreateTime'}"></span>
+                    <span class="fa fa-angle-down"
+                          data-ng-click=" order('-CreateTime') "
+                          data-ng-class="{active: row == '-CreateTime'}"></span>
+                </div></th>
+            </tr>
+            </thead>
+            <tbody data-ng-repeat="itm in vm.currentPageRecords">
+                <tr  ng-class="{
+                        'color-red': itm.Status === 'Failed' || itm.Status === 'FailedAck',
+                        'color-blue': itm.Status === 'Processing' || itm.Status === 'PendingAck',
+                        'color-yellow': itm.Status === 'Cancelled',
+                        'color-gray': itm.Status === 'Complete',
+                        'color-green': itm.Status === 'Executing'}
+                    " >
+                    <td><span><label class="checkbox-inline"><input
+                        name="vm.selectedMessages[]"
+                        ng-checked="vm.selectedMessages.indexOf(itm.Id) > -1"
+                        ng-click="toggleSelection(itm.Id)"
+                        type="checkbox">{{itm.Id}}</label></span>
+                        <span class="halflings halflings-bell"></span>
+
+                    </td>
+                    <td ng-click="invokeEditAndRetry(itm)">{{itm.Name}}</td>
+                    <td>{{itm.Status}}</td>
+                    <td>{{itm.Data}}&nbsp;</td>
+                    <td>{{itm.Q}}</td>
+                    <td>{{itm.CreateTime |   date:'MM/dd/yyyy h:mma'}}</td>
+                    <td>{{itm.ProcessedTime |   date:'MM/dd/yyyy h:mma'}}</td>
+                </tr>
+                <tr class="color-red" ng-show="itm.Errors.length>0 && (itm.Status=='Failed' || itm.Status == 'FailedAck' || itm.Status == 'Cancelled')" >
+                    <td>&nbsp;</td>
+                    <td colspan="6"> <span >{{itm.Errors}}</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                        <span>
+                            Show
+                            <select data-ng-model="vm.numPerPage"
+                                    data-ng-options="num for num in vm.numPerPageOpt"
+                                    data-ng-change="onNumPerPageChange()">
+                            </select>
+                            entries per page
+                        </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <uib-pagination class="pagination-sm"
+                                    ng-model="vm.currentPage"
+                                    total-items="vm.filteredRecordList.length"
+                                    max-size="4"
+                                    ng-change="select(vm.currentPage)"
+                                    items-per-page="vm.numPerPage"
+                                    rotate="false"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;"
+                                    boundary-links="true"></uib-pagination>
+                </div>
+            </div>
+        </footer>
+
+    </section>
+</div>

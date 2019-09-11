@@ -1,0 +1,71 @@
+
+
+<div class="page page-table" data-ng-controller="ScriptsCtrl">
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Current Scripts </strong> 
+            <div class="pull-right">
+               <button ng-click="getScripts()" class="btn btn-xs btn-success">Reload {{vm.recordType}}</button>
+             </div>
+        </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-responsive">
+                    <thead>
+                    <tr>
+                        <th><div class="th">Name</div></th>
+                        <th><div class="th">Version</div></th>
+                        <th><div class="th">Description</div></th>
+                        <th><div class="th">Cycles</div></th>
+                        <th><div class="th">Failed</div></th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="itm in vm.scriptList">
+                        <tr>
+                            <td>
+                                <button alt="Modify Script" ng-click="modifyScript(itm)" class="btn btn-xs btn-success"><i class="ti-notepad"></i></button>
+                                <button alt="Stop Task" ng-show="vm.showTaskCtrls == true && itm.IsPaused == 0 && itm.Active == 1" ng-click="pauseRunState(itm)" class="btn btn-xs btn-danger">
+                                    <i class="ti-control-pause"></i>
+                                </button>
+                                <button alt="Start Task" ng-show="vm.showTaskCtrls == true && itm.IsPaused == 1 && itm.Active == 1" ng-click="resumeRunState(itm)" class="btn btn-xs btn-success">
+                                        <i class="ti-control-play"></i>
+                                </button>
+                                &nbsp;{{itm.Name}}
+                            </td>
+                            <td>{{itm.Version}}</td>
+                            <td>{{itm.Description}}<small ng-show="itm.hasError == true" class="bg-danger"><br/>{{itm.CompileErrors}}</small></td>
+                            <td>{{itm.Statistic.ExecutionCount}}&nbsp;</td>
+                            <td>{{itm.Statistic.FailureCount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script type="text/ng-template" id="blocks/modal/dialogCancelMessage.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Cancel Message</h3>
+    </div>
+    <div class="modal-body">
+        Cancel this message will allow other messages to process.  <br/><br/>Do you want to cancel this message ?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="yes()">Yes</button>
+        <button class="btn btn-warning" type="button" ng-click="no()">No</button>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="blocks/modal/dialogCancelQueue.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Cancel Queue</h3>
+    </div>
+    <div class="modal-body">
+        Cancel this queue will cause all messages to be marked as cancelled.  Any new messages will be queued for processing.<br/><br/>  Continue with the cancellation of the queue ?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="yes()">Yes</button>
+        <button class="btn btn-warning" type="button" ng-click="no()">No</button>
+    </div>
+</script>

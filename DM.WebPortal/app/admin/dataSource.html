@@ -1,0 +1,30 @@
+<div class="page page-setup" data-ng-controller="DataSourceCtrl">
+
+
+    <table class="table table-condensed table-bordered table-striped table-responsive">
+        <thead >
+        <tr>
+            <th><div class="th">Identifier</div></th>
+            <th><div class="th">Tag Name</div></th>
+            <th><div class="th">Daily</div></th>
+            <th><div class="th">Weekly</div></th>
+            <th><div class="th">Monthly</div></th>
+            <th><div class="th">Units</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="itm in vm.natGasInfo">
+            <td>{{itm.Name}}</td>
+            <td>{{itm.MeterIdentifier}}</td>
+            <td>{{itm.ExpectedDaily}}</td>
+            <td>{{itm.ExpectedWeekly}}</td>
+            <td>{{itm.ExpectedMonthly}}</td>
+            <td>{{itm.EngUnits}}</td>
+            <td>
+                <button ng-click="openEditor(itm)" class="btn btn-xs btn-skype">Modify</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

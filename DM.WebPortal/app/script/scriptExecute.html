@@ -1,0 +1,34 @@
+
+
+<style>
+    .ace_editor2 { height: 150px; }
+</style>
+
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Execute Script</h3>
+</div>
+
+<div class="modal-body" id="modal-body">
+    <form role="form">
+        <div class="form-group">
+            <div style="height: 200px;" ng-model="vm.script.Script" ui-ace="{ onLoad : aceLoaded, mode: 'json',  theme:'crimson editor' }" ></div>
+        </div>
+    </form>
+
+    <div class="panel panel-default">
+        <div class="panel-header">Feedback</div>
+        <div class="panel-body">
+            <ul>
+                <li>Waiting...</li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.okPublish()">Execute</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancelPublish()">Close</button>
+</div>
+

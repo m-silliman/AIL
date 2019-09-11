@@ -1,0 +1,22 @@
+<style>
+.ace_editor { height: 500px; }
+</style>
+
+<div class="page" data-ng-controller="ScriptEditorCtrl">
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span class="text-info">[{{vm.script.Name}}:{{vm.script.Version}}] </span></strong>
+            <div class="pull-right">
+                <button ng-click="getScript(vm.script.Id)" class="btn btn-xs btn-success">Reload Running Script</button>
+                <button ng-show="vm.script.Active == 1" ng-click="setEnableOrDisable(vm.script.Name, false)" class="btn btn-xs btn-danger">Disable</button>
+                <button ng-show="vm.script.Active == 0" ng-click="setEnableOrDisable(vm.script.Name, true)" class="btn btn-xs btn-success">Enable</button>
+            </div>
+        </div>
+        <div class="panel-body" style="margin-left: 0px;padding: 0px;">
+            <div class="panel-heading" ng-show="vm.hasError"><span style="color:red;">{{vm.errorMessage}}</span></div>
+            <div ng-model="vm.script.Script" ui-ace="{ onLoad : aceLoaded, mode: 'csharp',  theme:'crimson editor',}" ></div>
+        </div>
+    </div>
+</div>
+

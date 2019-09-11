@@ -1,0 +1,76 @@
+<style>
+    @media print {
+        .visible-print  { display: inherit !important; }
+        .hidden-print   { display: none !important; }
+    }
+    .color-red {
+        background-color: darkred !important;
+        color: white;
+    }
+    .color-blue {
+        color: blue;
+    }
+    .color-gray {
+        color: gray;
+    }
+    .color-green {
+        background-color: darkgreen !important;
+        color: white;
+    }
+    .color-yellow {
+        background-color: yellow !important;
+        color: black;
+    }
+
+</style>
+
+<div class="page page-table" data-ng-controller="DatasourcesCtrl">
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Scripting Data Sources </strong> <div class="pull-right">
+            <button ng-click="getQueues()" class="btn btn-xs btn-success">Reload</button></div></div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th><div class="th">Access Name</div></th>
+                    <th><div class="th">Sources</div></th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="itm in vm.Datasources">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>{{itm.Name}}</td>
+                    <td>{{itm.Sources.length}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="4">
+                        <table class="table table-bordered table-striped table-responsive">
+                        <thead>
+
+                            <th><div class="th">Name</div></th>
+                            <th><div class="th">Description</div></th>
+                            <th><div class="th">Processed</div></th>
+                            <th><div class="th">Error</div></th>
+                            <th><div class="th">Pending</div></th>
+                        </thead>
+                            <tbody ng-repeat="src in itm.Sources">
+                            <tr>
+                                <td>{{src.Name}}</td>
+                                <td>{{src.Description}}</td>
+                                <td>{{src.Processed}}</td>
+                                <td>{{src.Error}}</td>
+                                <td>{{src.Pending}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

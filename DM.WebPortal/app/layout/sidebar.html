@@ -1,0 +1,48 @@
+
+<div class="nav-wrapper">
+    <ul id="nav"
+        class="nav"
+        data-slim-scroll
+        data-collapse-nav
+        data-highlight-active>
+
+        <li>
+            <a href="#/dashboard"> <i class="ti-home"></i><span data-translate="Dashboard"></span> </a>
+        </li>
+        <li>
+            <a href="#/msg"><i class="ti-folder"></i><span data-translate="Messages"></span></a>
+            <ul>
+                <li ng-show="vm.isLoggedIn == true && vm.hasAdminPriv == true" ><a href="#/msg/new"><i class="ti-receipt"></i><span data-translate="New Message"></span></a></li>
+                <li><a href="#/msg/messageList?type=recent"><i class="ti-receipt"></i><span data-translate="Recent"></span></a></li>
+                <li><a href="#/msg/messageList?type=active"><i class="ti-receipt"></i><span data-translate="Active"></span></a></li>
+                <li><a href="#/msg/messageList?type=error"><i class="ti-receipt"></i><span data-translate="Error"></span></a></li>
+                <li><a href="#/msg/messageList?type=Cancelled"><i class="ti-receipt"></i><span data-translate="Cancelled"></span></a></li>
+                <li><a href="#/msg/messageList?type=Aborted"><i class="ti-receipt"></i><span data-translate="Aborted"></span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#/datasources/list"><i class="ti-cloud-up"></i><span data-translate="Datasources"></span></a>
+        </li>
+        <li>
+            <a href="#/queues/queues"><i class="ti-list"></i><span data-translate="Dynamic Queues"></span></a>
+        </li>
+        <li>
+            <a href="#/states/states"><i class="ti-marker"></i><span data-translate="States"></span></a>
+        </li>
+        <li ng-show="vm.isLoggedIn == true && vm.hasAdminPriv == true">
+            <a href="#/notifications/notifications"><i class="ti-bolt"></i><span data-translate="Notifications"></span></a>
+        </li>
+        <li>
+            <a href="#/logs/logs"><i class="ti-ink-pen"></i><span data-translate="Logs"></span></a>
+        </li>
+        <li ng-show="vm.isLoggedIn == true && vm.hasScriptPriv == true">
+            <a href="#/script"><i class="ti-notepad"></i><span data-translate="Scripts"></span></a>
+            <ul>
+                <li><a href="#/script/scriptList?type=Event"><i class="ti-bolt"></i><span data-translate="Event"></span> </a></li>
+                <li><a href="#/script/scriptList?type=Task"><i class="ti-timer"></i><span data-translate="Task"></span> </a></li>
+                <li><a href="#/script/scriptList?type=Endpoint"><i class="ti-html5"></i><span data-translate="Endpoint"></span> </a></li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
