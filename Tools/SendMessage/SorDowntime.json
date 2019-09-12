@@ -1,0 +1,11 @@
+{
+                "messageType": "SORDOWNTIME",
+                "machine": "3020",
+                "reasoncode": "000",
+                "respcode": "O",
+                "forcesched": "FORCED",
+                "starttime": " 9-MAY-2013 07:21:43",
+                "endtime": " 9-MAY-2013 07:42:06",
+                "opercomm": ""
+}
+

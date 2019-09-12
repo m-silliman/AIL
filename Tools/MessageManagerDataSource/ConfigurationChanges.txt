@@ -1,0 +1,30 @@
+Integration Steps for AiL and Message Manager
+
+  - requires version 27.0 of DM.Service + DM.Editor
+
+  - copy MessageManagerDataSource.dll to dm.editor and dm.service directories so it can be discovered on startup
+
+  - modify dm.editor.exe.config to have a named message manager queue 
+
+    <Queue name="MM" clientClass="MessageManagerDataSource,MessageManagerDataSource.QueueClient" serverClass="">
+       <Parameters>
+       </Parameters>
+    </Queue>
+
+  - modify dm.service.exe.config to have a message manager instance active
+
+    <!-- Define all the background tasks that will be used to receive messages -->
+     <Scripting.RegisteredDataSources>
+      <DataSources>
+        <!-- Microsoft Message Queue Datasource -->
+        <DataSource name="MicrosoftMessageQueue" classname="DM.Library.MessageQ.MsMqDataSource" assembly="DM.Library.dll"></DataSource>
+          <DataSource name="MessageManager" classname="MessageManagerDataSource.DataSource" assembly="MessageManagerDataSource.dll"></DataSource>
+       </DataSources>
+     </Scripting.RegisteredDataSources>
+
+     <Queue name="MM" clientClass="MessageManagerDataSource,MessageManagerDataSource.QueueClient" serverClass="">
+        <Parameters>
+        </Parameters>
+     </Queue>
+
+

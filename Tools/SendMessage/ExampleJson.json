@@ -1,0 +1,5 @@
+﻿ { "messageType" : "SendXYZ",
+    "Field1"      : "abc",
+    "Field2"      : 123,
+    "Field3"      : 789.1
+  }

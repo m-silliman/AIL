@@ -134,3 +134,30 @@ To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fus
 [DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 9:59:36 AM] - Memory usage: 54 MB
 [DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:00:36 AM] - Memory usage: 54 MB
 [DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:01:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:02:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:03:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:04:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [7] - [DispatchMessageEventProcessor] - [Info] - [9/11/2019 10:04:51 AM] - 0 records purged.
+[DM.Service.exe] - [7] - [DispatchMessageEventProcessor] - [Info] - [9/11/2019 10:04:51 AM] - 0 records purged.
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:05:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:06:36 AM] - Memory usage: 54 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:07:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:08:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:09:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:10:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:11:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:12:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:13:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:14:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [7] - [DispatchMessageEventProcessor] - [Info] - [9/11/2019 10:14:56 AM] - 0 records purged.
+[DM.Service.exe] - [7] - [DispatchMessageEventProcessor] - [Info] - [9/11/2019 10:14:56 AM] - 0 records purged.
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:15:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [Main] - [Debug] - [9/11/2019 10:16:36 AM] - Memory usage: 55 MB
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [9/11/2019 10:17:09 AM] - Notification to shutdown
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [9/11/2019 10:17:09 AM] - Stopping datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [9/11/2019 10:17:09 AM] - Stopping Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [7] - [] - [Info] - [9/11/2019 10:17:09 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [7] - [DispatchMessageEventProcessor] - [Info] - [9/11/2019 10:17:09 AM] - MessageEventProcessor:Proc has stopped
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [9/11/2019 10:17:09 AM] - Terminating ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [7] - [] - [Info] - [9/11/2019 10:17:09 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [9/11/2019 10:17:09 AM] - Application shutdown
