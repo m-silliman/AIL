@@ -1,0 +1,239 @@
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:22:41 AM] - Application Startup
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:22:41 AM] - Version: R27.0:7194
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:22:41 AM] - Working directory: C:\Projects\github\AIL\DM.Service\
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:22:41 AM] - Looking for DM.Service
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:22:41 AM] - Running interactive mode.
+[DM.Service.exe] - [1] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:22:41 AM] - Starting ExternalNotificationEventProcessor
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:22:42 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\DM.Library.dll
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Debug] - [10/14/2019 11:22:42 AM] - Initializing DM.Library.MessageQ.MsMqDataSource data source
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Info] - [10/14/2019 11:22:42 AM] - Starting queue alias=MES_PDI queueName= queuePath=FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [MsMqListeningQueue] - [Info] - [10/14/2019 11:22:42 AM] - Using customformat = FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:22:42 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\MessageManagerDataSource.dll
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:22:42 AM] - Starting ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [1] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:22:42 AM] - Initialize event processor
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:22:42 AM] - Begin: Initialize datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [10/14/2019 11:22:42 AM] - Starting Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:22:42 AM] - End: Initialize datasource: DM.Library.MessageQ.MsMqDataSource complete
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:22:42 AM] - Begin: Initialize datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:22:42 AM] - Startup application
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:22:42 AM] - Message plugins running in ShadowMode=[False].
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:22:42 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [ScriptTaskService] - [Info] - [10/14/2019 11:22:42 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:22:42 AM] - Start MessageReader listener on port 3000
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:22:42 AM] - Listening on port 3000
+[DM.Service.exe] - [5] - [MessageWriter] - [Info] - [10/14/2019 11:22:42 AM] - Start MessageWriter listener on port 3001
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:22:42 AM] - Start MessageReader listener now active
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:22:42 AM] - End: Initialize datasource: MessageManagerDataSource.DataSource complete
+[DM.Service.exe] - [9] - [DM.Service.Program] - [Critical] - [10/14/2019 11:22:42 AM] - Unhandled exception
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:22:42 AM] - All datasources started.
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:22:42 AM] - Listening for new connection...
+[DM.Service.exe] - [9] - [DM.Service.Program] - [Critical] - [10/14/2019 11:22:42 AM] - System.IO.FileNotFoundException: Could not find file 'C:\Projects\github\AIL\DM.Service\MessageNodes.xml'.
+File name: 'C:\Projects\github\AIL\DM.Service\MessageNodes.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.Open(String path, FileMode mode)
+   at MessageManagerDataSource.Common.Serializer`1.DeSerializeObjectAsXml(String filename) in C:\Projects\DeadlineSource\AiL\Components\MessageManagerDataSource\Common\Serializer.cs:line 106
+   at MessageManagerDataSource.MessageWriter.Proc() in C:\Projects\DeadlineSource\AiL\Components\MessageManagerDataSource\MessageWriter.cs:line 182
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+[DM.Service.exe] - [1] - [ScriptEngine] - [Debug] - [10/14/2019 11:22:42 AM] - Searching folder: C:\AilEnvironments\LocalDevelopmentDLL
+[DM.Service.exe] - [1] - [ScriptEngine] - [Error] - [10/14/2019 11:22:43 AM] - Folder C:\AilEnvironments\LocalDevelopmentDLL not found
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:25:22 AM] - Application Startup
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:25:22 AM] - Version: R27.0:7194
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:25:22 AM] - Working directory: C:\Projects\github\AIL\DM.Service\
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:25:22 AM] - Looking for DM.Service
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:25:22 AM] - Running interactive mode.
+[DM.Service.exe] - [1] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:22 AM] - Starting ExternalNotificationEventProcessor
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:25:22 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\DM.Library.dll
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Debug] - [10/14/2019 11:25:22 AM] - Initializing DM.Library.MessageQ.MsMqDataSource data source
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Info] - [10/14/2019 11:25:22 AM] - Starting queue alias=MES_PDI queueName= queuePath=FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [MsMqListeningQueue] - [Info] - [10/14/2019 11:25:22 AM] - Using customformat = FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:25:22 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\MessageManagerDataSource.dll
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:22 AM] - Starting ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [1] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:25:22 AM] - Initialize event processor
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:22 AM] - Begin: Initialize datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [10/14/2019 11:25:22 AM] - Starting Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:22 AM] - End: Initialize datasource: DM.Library.MessageQ.MsMqDataSource complete
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:22 AM] - Begin: Initialize datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:25:22 AM] - Startup application
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:25:22 AM] - Message plugins running in ShadowMode=[False].
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:25:23 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [ScriptTaskService] - [Info] - [10/14/2019 11:25:23 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:25:23 AM] - Start MessageReader listener on port 3000
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:25:23 AM] - Listening on port 3000
+[DM.Service.exe] - [5] - [MessageWriter] - [Info] - [10/14/2019 11:25:23 AM] - Start MessageWriter listener on port 3001
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:25:23 AM] - Start MessageReader listener now active
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:23 AM] - End: Initialize datasource: MessageManagerDataSource.DataSource complete
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:23 AM] - All datasources started.
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:25:23 AM] - Listening for new connection...
+[DM.Service.exe] - [1] - [ScriptEngine] - [Debug] - [10/14/2019 11:25:23 AM] - Searching folder: .\DynamicDll
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:25:23 AM] - Creating a store-forward queue for L2A
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:25:23 AM] - Creating a store-forward queue for L2B
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:25:23 AM] - Listening for new connection...
+[DM.Service.exe] - [1] - [ScriptEngine] - [Critical] - [10/14/2019 11:25:23 AM] - System.ArgumentException: Absolute path information is required.
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Reflection.Assembly.LoadFile(String path)
+   at DM.Library.Scripting.ScriptEngine.FindAssemblies(String folder) in C:\Projects\DeadlineSource\AiL\Components\DM.Library\Scripting\ScriptEngine.cs:line 133
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:25:23 AM] - Discovered client DispatchManagerClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:25:23 AM] - Discovered client MessageClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:25:23 AM] - Discovered client QueueClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:25:23 AM] - Discovered client MsMqClient datasource
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:25:23 AM] - MessageEventProcessor:Proc has started
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:25:23 AM] - ThreadPool set to 10
+[DM.Service.exe] - [1] - [DispatchManagementControlProcessor] - [Info] - [10/14/2019 11:25:23 AM] - DispatchManagementControlProcessor is active and ready
+[DM.Service.exe] - [1] - [FormMainWindow] - [Debug] - [10/14/2019 11:25:23 AM] - FormMainWindow_Load_Start
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:25:24 AM] - Startup script name is _OnStartup
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Error] - [10/14/2019 11:25:24 AM] - Startup script [_OnStartup] undefined
+[DM.Service.exe] - [1] - [Script] - [Info] - [10/14/2019 11:25:24 AM] - Scripting Management service is running.
+[DM.Service.exe] - [1] - [Main] - [Debug] - [10/14/2019 11:25:24 AM] - Memory usage: 48 MB
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:25:26 AM] - 0 records purged.
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:25:26 AM] - 0 records purged.
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:25:35 AM] - Notification to shutdown
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:35 AM] - Stopping datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [10/14/2019 11:25:36 AM] - Stopping Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:36 AM] - Stopping datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:25:36 AM] - Service signalled for shutdown.
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:25:36 AM] - Caching any unset messages for [0]
+[DM.Service.exe] - [5] - [ScriptTaskService] - [Debug] - [10/14/2019 11:25:36 AM] - All tasks have shutdown.
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:25:36 AM] - Caching any unset messages for [0]
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:25:36 AM] - Waiting for threads to terminate.
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:25:36 AM] - MessageListener has stopped listening
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:25:36 AM] - Terminating ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [10] - [] - [Info] - [10/14/2019 11:25:36 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:25:36 AM] - MessageEventProcessor:Proc has stopped
+[DM.Service.exe] - [10] - [] - [Info] - [10/14/2019 11:25:36 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:25:36 AM] - Application shutdown
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:00 AM] - Application Startup
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:00 AM] - Version: R27.0:7194
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:00 AM] - Working directory: C:\Projects\github\AIL\DM.Service\
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:00 AM] - Looking for DM.Service
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:00 AM] - Running interactive mode.
+[DM.Service.exe] - [1] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:00 AM] - Starting ExternalNotificationEventProcessor
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:26:00 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\DM.Library.dll
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Debug] - [10/14/2019 11:26:00 AM] - Initializing DM.Library.MessageQ.MsMqDataSource data source
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Info] - [10/14/2019 11:26:00 AM] - Starting queue alias=MES_PDI queueName= queuePath=FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [MsMqListeningQueue] - [Info] - [10/14/2019 11:26:00 AM] - Using customformat = FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:26:00 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\MessageManagerDataSource.dll
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:00 AM] - Starting ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [1] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:00 AM] - Initialize event processor
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:00 AM] - Begin: Initialize datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [10/14/2019 11:26:00 AM] - Starting Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:00 AM] - End: Initialize datasource: DM.Library.MessageQ.MsMqDataSource complete
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:00 AM] - Begin: Initialize datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:26:00 AM] - Startup application
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:26:00 AM] - Message plugins running in ShadowMode=[False].
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:26:00 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [ScriptTaskService] - [Info] - [10/14/2019 11:26:00 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:26:00 AM] - Start MessageReader listener on port 3000
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:26:00 AM] - Listening on port 3000
+[DM.Service.exe] - [5] - [MessageWriter] - [Info] - [10/14/2019 11:26:00 AM] - Start MessageWriter listener on port 3001
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:26:00 AM] - Start MessageReader listener now active
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:00 AM] - End: Initialize datasource: MessageManagerDataSource.DataSource complete
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:26:00 AM] - Listening for new connection...
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:00 AM] - All datasources started.
+[DM.Service.exe] - [1] - [ScriptEngine] - [Debug] - [10/14/2019 11:26:00 AM] - Searching folder: DynamicDll
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:00 AM] - Creating a store-forward queue for L2A
+[DM.Service.exe] - [1] - [ScriptEngine] - [Critical] - [10/14/2019 11:26:00 AM] - System.ArgumentException: Absolute path information is required.
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Reflection.Assembly.LoadFile(String path)
+   at DM.Library.Scripting.ScriptEngine.FindAssemblies(String folder) in C:\Projects\DeadlineSource\AiL\Components\DM.Library\Scripting\ScriptEngine.cs:line 133
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:00 AM] - Creating a store-forward queue for L2B
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:00 AM] - Discovered client DispatchManagerClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:00 AM] - Discovered client MessageClient datasource
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:00 AM] - Listening for new connection...
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:00 AM] - Discovered client QueueClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:00 AM] - Discovered client MsMqClient datasource
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:00 AM] - MessageEventProcessor:Proc has started
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:00 AM] - ThreadPool set to 10
+[DM.Service.exe] - [1] - [DispatchManagementControlProcessor] - [Info] - [10/14/2019 11:26:00 AM] - DispatchManagementControlProcessor is active and ready
+[DM.Service.exe] - [1] - [FormMainWindow] - [Debug] - [10/14/2019 11:26:00 AM] - FormMainWindow_Load_Start
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:01 AM] - Startup script name is _OnStartup
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Error] - [10/14/2019 11:26:01 AM] - Startup script [_OnStartup] undefined
+[DM.Service.exe] - [1] - [Script] - [Info] - [10/14/2019 11:26:01 AM] - Scripting Management service is running.
+[DM.Service.exe] - [1] - [Main] - [Debug] - [10/14/2019 11:26:01 AM] - Memory usage: 47 MB
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:03 AM] - 0 records purged.
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:04 AM] - 0 records purged.
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:04 AM] - Notification to shutdown
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:04 AM] - Stopping datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [10] - [] - [Info] - [10/14/2019 11:26:04 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:04 AM] - MessageEventProcessor:Proc has stopped
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [10/14/2019 11:26:04 AM] - Stopping Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [10] - [] - [Info] - [10/14/2019 11:26:04 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:04 AM] - Stopping datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:26:04 AM] - Service signalled for shutdown.
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:04 AM] - Caching any unset messages for [0]
+[DM.Service.exe] - [5] - [ScriptTaskService] - [Debug] - [10/14/2019 11:26:04 AM] - All tasks have shutdown.
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:04 AM] - Caching any unset messages for [0]
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:26:04 AM] - Waiting for threads to terminate.
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:26:04 AM] - MessageListener has stopped listening
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:04 AM] - Terminating ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:04 AM] - Application shutdown
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:30 AM] - Application Startup
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:30 AM] - Version: R27.0:7194
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:30 AM] - Working directory: C:\Projects\github\AIL\DM.Service\
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:30 AM] - Looking for DM.Service
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:26:30 AM] - Running interactive mode.
+[DM.Service.exe] - [1] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:30 AM] - Starting ExternalNotificationEventProcessor
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:26:30 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\DM.Library.dll
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Debug] - [10/14/2019 11:26:30 AM] - Initializing DM.Library.MessageQ.MsMqDataSource data source
+[DM.Service.exe] - [1] - [MsMqDataSource] - [Info] - [10/14/2019 11:26:30 AM] - Starting queue alias=MES_PDI queueName= queuePath=FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [MsMqListeningQueue] - [Info] - [10/14/2019 11:26:30 AM] - Using customformat = FormatName:Direct=OS:.\private$\pdi_q
+[DM.Service.exe] - [1] - [] - [Info] - [10/14/2019 11:26:30 AM] - Attempt to load C:\Projects\github\AIL\DM.Service\MessageManagerDataSource.dll
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:30 AM] - Starting ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [1] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:30 AM] - Initialize event processor
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:30 AM] - Begin: Initialize datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [10/14/2019 11:26:30 AM] - Starting Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:30 AM] - End: Initialize datasource: DM.Library.MessageQ.MsMqDataSource complete
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:30 AM] - Begin: Initialize datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:26:30 AM] - Startup application
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:26:30 AM] - Message plugins running in ShadowMode=[False].
+[DM.Service.exe] - [5] - [ScriptHandlerService] - [Info] - [10/14/2019 11:26:30 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [ScriptTaskService] - [Info] - [10/14/2019 11:26:30 AM] - Starting message plugin thread.
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:26:30 AM] - Start MessageReader listener on port 3000
+[DM.Service.exe] - [5] - [MessageReader] - [Info] - [10/14/2019 11:26:30 AM] - Listening on port 3000
+[DM.Service.exe] - [5] - [MessageWriter] - [Info] - [10/14/2019 11:26:30 AM] - Start MessageWriter listener on port 3001
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:26:30 AM] - Start MessageReader listener now active
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:30 AM] - End: Initialize datasource: MessageManagerDataSource.DataSource complete
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:26:30 AM] - All datasources started.
+[DM.Service.exe] - [8] - [MessageReader] - [Info] - [10/14/2019 11:26:30 AM] - Listening for new connection...
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:30 AM] - Creating a store-forward queue for L2A
+[DM.Service.exe] - [1] - [ScriptEngine] - [Debug] - [10/14/2019 11:26:30 AM] - Searching folder: 
+[DM.Service.exe] - [1] - [ScriptEngine] - [Error] - [10/14/2019 11:26:30 AM] - Folder  not found
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:30 AM] - Creating a store-forward queue for L2B
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:30 AM] - Discovered client DispatchManagerClient datasource
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:26:30 AM] - Listening for new connection...
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:30 AM] - Discovered client MessageClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:30 AM] - Discovered client QueueClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [10/14/2019 11:26:30 AM] - Discovered client MsMqClient datasource
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:30 AM] - MessageEventProcessor:Proc has started
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:30 AM] - ThreadPool set to 10
+[DM.Service.exe] - [1] - [DispatchManagementControlProcessor] - [Info] - [10/14/2019 11:26:30 AM] - DispatchManagementControlProcessor is active and ready
+[DM.Service.exe] - [1] - [FormMainWindow] - [Debug] - [10/14/2019 11:26:30 AM] - FormMainWindow_Load_Start
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:31 AM] - Startup script name is _OnStartup
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Error] - [10/14/2019 11:26:31 AM] - Startup script [_OnStartup] undefined
+[DM.Service.exe] - [1] - [Script] - [Info] - [10/14/2019 11:26:31 AM] - Scripting Management service is running.
+[DM.Service.exe] - [1] - [Main] - [Debug] - [10/14/2019 11:26:31 AM] - Memory usage: 47 MB
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:33 AM] - 0 records purged.
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:26:33 AM] - 0 records purged.
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:27:03 AM] - Notification to shutdown
+[DM.Service.exe] - [10] - [] - [Info] - [10/14/2019 11:27:03 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [10] - [DispatchMessageEventProcessor] - [Info] - [10/14/2019 11:27:03 AM] - MessageEventProcessor:Proc has stopped
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:27:03 AM] - Stopping datasource: DM.Library.MessageQ.MsMqDataSource
+[DM.Service.exe] - [10] - [] - [Info] - [10/14/2019 11:27:03 AM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [5] - [MsMqDataSource] - [Debug] - [10/14/2019 11:27:03 AM] - Stopping Microsoft Message Queue 2.0 Data Adapter
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:27:03 AM] - Stopping datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:27:03 AM] - Service signalled for shutdown.
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:27:03 AM] - Caching any unset messages for [0]
+[DM.Service.exe] - [5] - [ScriptTaskService] - [Debug] - [10/14/2019 11:27:03 AM] - All tasks have shutdown.
+[DM.Service.exe] - [9] - [MessageWriter] - [Info] - [10/14/2019 11:27:03 AM] - Caching any unset messages for [0]
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:27:03 AM] - Waiting for threads to terminate.
+[DM.Service.exe] - [5] - [Main_Program] - [Info] - [10/14/2019 11:27:03 AM] - MessageListener has stopped listening
+[DM.Service.exe] - [5] - [NotificationEventProcessor] - [Debug] - [10/14/2019 11:27:03 AM] - Terminating ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [10/14/2019 11:27:03 AM] - Application shutdown

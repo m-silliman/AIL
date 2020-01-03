@@ -1,0 +1,44 @@
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [1/3/2020 4:36:11 PM] - Application Startup
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [1/3/2020 4:36:11 PM] - Version: R27.0:7307
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [1/3/2020 4:36:11 PM] - Working directory: C:\Projects\github\AIL\DM.Service\
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [1/3/2020 4:36:11 PM] - Looking for DM.Service
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [1/3/2020 4:36:11 PM] - Running interactive mode.
+[DM.Service.exe] - [1] - [NotificationEventProcessor] - [Debug] - [1/3/2020 4:36:11 PM] - Starting ExternalNotificationEventProcessor
+[DM.Service.exe] - [1] - [] - [Info] - [1/3/2020 4:36:11 PM] - Attempt to load C:\Projects\github\AIL\DM.Service\MessageManagerDataSource.dll
+[DM.Service.exe] - [4] - [NotificationEventProcessor] - [Debug] - [1/3/2020 4:36:11 PM] - Starting ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [1] - [MessageEventProcessor] - [Info] - [1/3/2020 4:36:11 PM] - Initialize event processor
+[DM.Service.exe] - [4] - [NotificationEventProcessor] - [Debug] - [1/3/2020 4:36:11 PM] - Begin: Initialize datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [4] - [Main_Program] - [Info] - [1/3/2020 4:36:11 PM] - Startup application
+[DM.Service.exe] - [4] - [ScriptHandlerService] - [Info] - [1/3/2020 4:36:11 PM] - Message plugins running in ShadowMode=[False].
+[DM.Service.exe] - [4] - [ScriptHandlerService] - [Info] - [1/3/2020 4:36:11 PM] - Starting message plugin thread.
+[DM.Service.exe] - [4] - [ScriptTaskService] - [Info] - [1/3/2020 4:36:11 PM] - Starting message plugin thread.
+[DM.Service.exe] - [4] - [MessageReader] - [Info] - [1/3/2020 4:36:11 PM] - Start MessageReader listener on port 3000
+[DM.Service.exe] - [4] - [MessageReader] - [Info] - [1/3/2020 4:36:11 PM] - Listening on port 3000
+[DM.Service.exe] - [4] - [MessageWriter] - [Info] - [1/3/2020 4:36:11 PM] - Start MessageWriter listener on port 3001
+[DM.Service.exe] - [6] - [MessageReader] - [Info] - [1/3/2020 4:36:11 PM] - Start MessageReader listener now active
+[DM.Service.exe] - [4] - [NotificationEventProcessor] - [Debug] - [1/3/2020 4:36:11 PM] - End: Initialize datasource: MessageManagerDataSource.DataSource complete
+[DM.Service.exe] - [6] - [MessageReader] - [Info] - [1/3/2020 4:36:11 PM] - Listening for new connection...
+[DM.Service.exe] - [4] - [NotificationEventProcessor] - [Debug] - [1/3/2020 4:36:11 PM] - All datasources started.
+[DM.Service.exe] - [7] - [MessageWriter] - [Info] - [1/3/2020 4:36:11 PM] - Creating a store-forward queue for L2A
+[DM.Service.exe] - [7] - [MessageWriter] - [Info] - [1/3/2020 4:36:11 PM] - Creating a store-forward queue for L2B
+[DM.Service.exe] - [7] - [MessageWriter] - [Info] - [1/3/2020 4:36:11 PM] - Listening for new connection...
+[DM.Service.exe] - [1] - [ScriptEngine] - [Debug] - [1/3/2020 4:36:11 PM] - Searching folder: 
+[DM.Service.exe] - [1] - [ScriptEngine] - [Error] - [1/3/2020 4:36:11 PM] - Folder  not found
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [1/3/2020 4:36:11 PM] - Discovered client DispatchManagerClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [1/3/2020 4:36:11 PM] - Discovered client MessageClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [1/3/2020 4:36:11 PM] - Discovered client QueueClient datasource
+[DM.Service.exe] - [1] - [ScriptEngine] - [Info] - [1/3/2020 4:36:11 PM] - Discovered client MsMqClient datasource
+[DM.Service.exe] - [8] - [MessageEventProcessor] - [Info] - [1/3/2020 4:36:11 PM] - MessageEventProcessor:Proc has started
+[DM.Service.exe] - [8] - [MessageEventProcessor] - [Info] - [1/3/2020 4:36:11 PM] - ThreadPool set to 10
+[DM.Service.exe] - [1] - [DispatchManagementControlProcessor] - [Info] - [1/3/2020 4:36:11 PM] - DispatchManagementControlProcessor is active and ready
+[DM.Service.exe] - [1] - [FormMainWindow] - [Debug] - [1/3/2020 4:36:11 PM] - FormMainWindow_Load_Start
+[DM.Service.exe] - [1] - [Script] - [Info] - [1/3/2020 4:36:12 PM] - Scripting Management service is running.
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:36:12 PM] - Memory usage: 49 MB
+[DM.Service.exe] - [8] - [MessageEventProcessor] - [Info] - [1/3/2020 4:36:16 PM] - Startup script name is _OnStartup
+[DM.Service.exe] - [8] - [MessageEventProcessor] - [Error] - [1/3/2020 4:36:16 PM] - Startup script [_OnStartup] undefined
+[DM.Service.exe] - [8] - [MessageEventProcessor] - [Info] - [1/3/2020 4:36:22 PM] - 0 records purged.
+[DM.Service.exe] - [8] - [MessageEventProcessor] - [Info] - [1/3/2020 4:36:22 PM] - 0 records purged.
+[DM.Service.exe] - [10] - [BasicAuthenticationInvoker] - [Debug] - [1/3/2020 4:36:40 PM] - Creating authorization library: DM.Library.Auth.SimpleFile,DM.Library
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:37:12 PM] - Memory usage: 52 MB
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:38:12 PM] - Memory usage: 52 MB
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:39:12 PM] - Memory usage: 51 MB
