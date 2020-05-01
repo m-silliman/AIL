@@ -42,3 +42,21 @@
 [DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:37:12 PM] - Memory usage: 52 MB
 [DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:38:12 PM] - Memory usage: 52 MB
 [DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:39:12 PM] - Memory usage: 51 MB
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:40:12 PM] - Memory usage: 52 MB
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:41:12 PM] - Memory usage: 53 MB
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:42:12 PM] - Memory usage: 53 MB
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:43:12 PM] - Memory usage: 53 MB
+[DM.Service.exe] - [1] - [Main] - [Info] - [1/3/2020 4:44:12 PM] - Memory usage: 53 MB
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [1/3/2020 4:44:30 PM] - Notification to shutdown
+[DM.Service.exe] - [4] - [NotificationEventProcessor] - [Debug] - [1/3/2020 4:44:30 PM] - Stopping datasource: MessageManagerDataSource.DataSource
+[DM.Service.exe] - [4] - [Main_Program] - [Info] - [1/3/2020 4:44:30 PM] - Service signalled for shutdown.
+[DM.Service.exe] - [7] - [MessageWriter] - [Info] - [1/3/2020 4:44:30 PM] - Caching any unset messages for [0]
+[DM.Service.exe] - [4] - [ScriptTaskService] - [Debug] - [1/3/2020 4:44:30 PM] - All tasks have shutdown.
+[DM.Service.exe] - [7] - [MessageWriter] - [Info] - [1/3/2020 4:44:30 PM] - Caching any unset messages for [0]
+[DM.Service.exe] - [4] - [Main_Program] - [Info] - [1/3/2020 4:44:30 PM] - Waiting for threads to terminate.
+[DM.Service.exe] - [4] - [Main_Program] - [Info] - [1/3/2020 4:44:30 PM] - MessageListener has stopped listening
+[DM.Service.exe] - [4] - [NotificationEventProcessor] - [Debug] - [1/3/2020 4:44:30 PM] - Terminating ExternalNotificationEventProcessor thread
+[DM.Service.exe] - [8] - [] - [Info] - [1/3/2020 4:44:36 PM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [8] - [MessageEventProcessor] - [Info] - [1/3/2020 4:44:36 PM] - MessageEventProcessor:Proc has stopped
+[DM.Service.exe] - [8] - [] - [Info] - [1/3/2020 4:44:36 PM] - ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+[DM.Service.exe] - [1] - [DM.Service.Program] - [Info] - [1/3/2020 4:44:36 PM] - Application shutdown
