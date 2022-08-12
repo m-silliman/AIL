@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProxyConfiguration>
+  <Servers>
+    <!-- Live Data -->
+    <Server OpcServerPath="opcda://localhost/Kepware.KEPServerEX.V6" WatchItemPath="_System._Time_Second" RestartAfter="30" Alias="Kepware" RefreshRateMs="500" />
+
+  </Servers>
+
+  <!--
+   Define your OPC tags that by the scripts and data change condition scripts. 
+   Each tag is accessible by 'ReadTag' + 'WriteTag' using the alias name.  The 
+   alias is intended for readiblity and shorthand within the scripts.
+   -->
+  <Tags>
+
+    <!-- Put heartbeat in cache -->
+    <Tag ServerAlias="Kepware" ItemPath="_System._Time_Second" Alias="Heartbeat" Set="All"/>
+    
+  </Tags>                    
+
+</ProxyConfiguration>
