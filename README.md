@@ -1,6 +1,11 @@
 # AIL
 AiL (Starter AiL) 
 
+This repository is a distribution only version of AiL that is configured to use SQL CE Database only.  It is intended for training and learning in a development environment and not recommended to use the SQL CE database in a production environment.
+
+Included in this package is the AiL Editor (DM.Editor.exe), AiL Server (DM.Service.exe) and OPC Data Proxy (OpcServerProxy.exe) to connect OPC data to C# or VB scripts.  
+
+This is an unsupported distribution.
 
 # Getting started
 
