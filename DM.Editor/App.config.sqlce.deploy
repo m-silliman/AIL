@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+
+  <configSections>
+    <section name="BitFactory.Logging" type="BitFactory.Logging.Configuration.LoggingSection, BitFactory.Logging" />
+    <section name="DispatchManager.QueueConnections" type="DM.Library.QueueConnectionSection, DM.Library" />
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+
+    <!-- Generic queue definition section -->
+    <section name="Scripting.QueueConnections" type="DM.Library.ScriptingQueueConnectionsSection, DM.Library" />
+
+  </configSections>
+
+  <connectionStrings>
+
+    <!-- AiDB Connection string is used for the dispatch messages -->
+    <add name="AiDb" connectionString="Data Source=@@sqlcePath@@;Max Database Size=4000;Persist Security Info=False;" providerName="System.Data.SqlServerCe.4.0"/>
+
+  </connectionStrings>
+
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+
+
+
+  <appSettings>
+    <!-- Ail Schema Namespace -->
+    <add key="SchemaUser" value="AIL" />
+
+    <!-- Dispatch Manager Application Server -->
+    <add key="DispatchManagerAppServer" value="http://localhost:8000" />
+
+    <!-- This has to be an absolute path -->
+    <add key="AssemblyReferenceFolders" value="" />
+
+    <add key="AssemblyReferences" value="" />
+    <add key="ScriptNamespaces" value="System.Linq,System.Windows.Forms" />
+
+  </appSettings>
+
+  <Scripting.QueueConnections>
+    <Queues>
+
+      <Queue name="Listener_ExampleQ" 
+             clientClass="DM.Library.MessageQ.MsMqClient,DM.Library" 
+             serverClass="DM.Library.MessageQ.MsMqDataSource,DM.Library">
+        <Parameters>
+          <Parameter name="queueName" value="listener_q" />
+          <Parameter name="queuePath" value="FormatName:Direct=OS:.\private$\listener_q" />
+          <Parameter name="formatterType" value="Binary" />
+
+          <!-- Possible values that would define a message location
+                  msmq:label = default if blank
+                  msmq:defaultMessage = use defaultMessage from the file
+                  json:<path>
+                  xml:<path>
+            -->
+          <Parameter name="messageTypePath" value="json:Header.MessageName" />
+          <Parameter name="defaultMessage" value="Example_Unknown_Message" />
+          <Parameter name="isTransactional" value="True" />
+        </Parameters>
+      </Queue>
+
+      <!-- serverClass is left blank; normally this queue may exist on another machine -->
+      <Queue name="WriterOnly_ExampleQ" 
+             clientClass="DM.Library.MessageQ.MsMqClient,DM.Library"              
+             serverClass="">
+        <Parameters>
+          <Parameter name="queueName" value="writer_q" />
+          <Parameter name="queuePath" value="FormatName:Direct=OS:.\private$\writer_q" />
+          <Parameter name="formatterType" value="Xml" />
+          <Parameter name="messageTypePath" value="json:Header.MessageName" />
+          <Parameter name="defaultMessage" value="Writer_Unknown_Message" />
+          <Parameter name="isTransactional" value="True" />
+        </Parameters>
+      </Queue>
+
+    </Queues>
+
+  </Scripting.QueueConnections>
+
+  <!-- ********************** APPLICATION LOGGING **************************************** -->
+  <BitFactory.Logging name="global" xmlns="http://BitFactory.Logging">
+    <compositeLoggers>
+      <compositeLogger name="GlobalRollingFiles" isAsynchronous="true">
+
+        <rollingDateFileLoggers>
+          <rollingDateFileLogger name="myRollingFileLogger1" isEnabled="true" formattedFileName="Editor_{timestamp:yyyyMMdd}.log" maxFilesToKeep="10" autoDelete="true" severity="Debug" />
+        </rollingDateFileLoggers>
+
+      </compositeLogger>
+    </compositeLoggers>
+  </BitFactory.Logging>
+
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" />
+  </startup>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Data" publicKeyToken="b77a5c561934e089" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-10.0.0.0" newVersion="10.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Buffers" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

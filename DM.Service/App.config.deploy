@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="BitFactory.Logging" type="BitFactory.Logging.Configuration.LoggingSection, BitFactory.Logging" />
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="CL.DataServices.AppSettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+
+    <!-- This section is used for external message interfaces outside of the database -->
+    <section name="Scripting.RegisteredDataSources" type="DM.Library.ScriptingRegisteredDataSourcesConfig, DM.Library" />
+        
+    <!-- Generic queue definition section -->
+    <section name="Scripting.QueueConnections" type="DM.Library.ScriptingQueueConnectionsSection, DM.Library" />
+  
+  </configSections>
+  
+  <connectionStrings>
+
+    <!-- AiDB Connection string is used for the dispatch messages -->
+    <add name="AiDb" connectionString="@ConnectionString@" providerName="@providerName@" />
+
+  </connectionStrings>
+
+  <appSettings>
+    <!-- Ail Schema Namespace -->
+    <add key="SchemaUser" value="@SchemaUser@" />
+    
+    <!-- Define a working root folder -->
+    <add key="WorkFolder" value="cache" />
+    
+    <!-- Number of minutes of idle activity before terminating a dynamic queue:  IE: 15 minutes should be desired -->
+    <add key="AutoQueueTimeout" value="1" />
+    
+    <!-- Memory log level limit: Debug, Info, Error -->
+    <add key="MemoryLogLevel" value="Info" />
+
+    <!-- Message Recovery and shutdown section -->
+    <!-- Parameter is used to update messages that completed but could not be updated in state -->
+    <add key="MessageRecoveryFolder" value=".\messagestate" />
+    <!-- amount of time to allow for executing messages to complete before terminating the application -->
+    <add key="ShutdownGraceTime" value="60" />
+    
+    <!-- Global transaction log file to track incoming and outgoing messages; used as a json document; to be presented at the web layer -->
+    <add key="TransactionLogFolder" value="log" />
+
+    <!-- AiL Endpoint Authorization -->
+    <!-- active directory authentication always will rely on the current active directory
+		 environment that the process is running in to get its configuration
+	-->
+    <!-- add key="HttpEndpointBasicAuthType" value="DM.Library.Auth.ActiveDirectory,DM.Library"/ -->
+    <!-- add key="HttpEndpointBasicAuthType" value="DM.Library.Auth.AlwaysFail,DM.Library"/ -->
+    <!-- add key="HttpEndpointBasicAuthType" value="DM.Library.Auth.AlwaysAuthorize,DM.Library"/ -->
+
+    <!-- simple file authentication requires userlist.json to be present in the working folder
+			userlist.json should have:
+				[ { 'username': 'myuser', 'password': 'mypass' } ]
+	-->
+    <add key="HttpEndpointBasicAuthType" value="DM.Library.Auth.SimpleFile,DM.Library" />
+
+    <!-- ************* DYNAMIC ASSEMBLY LOADING FOR VB.NET OR C# LIBS ************************ -->
+    <!-- AssemblyReferences allow dynamically call for individual .NET DLL files comma delimited -->
+    <add key="AssemblyReferences" value="@AssemblyReferences@" />
+    <!-- AssemblyReferenceFolders allow dynamically call for folders in which all .NET DLLs in the folder are loaded -->
+    <add key="AssemblyReferenceFolders" value="@AssemblyReferenceFolders@" />
+
+    <!-- Scripting extensions;  allow namespaces to be injected into dispatch manager scripts -->
+    <add key="ScriptNamespaces" value="@ScriptNamespaces@" />
+
+    <!-- Number of days that messages will be kept in the DispatchMessage table 
+         Date is based on the Create_Date and message status cannot be NotProcessed
+    -->
+    <add key="DaysToKeepMessages" value="5" />
+    <!-- Number of days that messages will be kept in the State table 
+         Date is based on the Create_Date -->  
+    <add key="DaysToKeepStates" value="10" />
+    
+    <!-- **************************************************************** -->
+    <!-- Mail Server Notifications -->
+    <add key="NotificationConfig" value="notificationConfig.json" />
+    
+    <!-- **************************************************************** -->
+  
+    <!-- Used with dynamic service as the global mutex and service name -->
+    <!-- add key="AppSyncName" value="DM.Service"/ -->
+    
+  </appSettings>
+
+  <Scripting.QueueConnections>
+    <Queues>
+    </Queues>
+
+  </Scripting.QueueConnections>
+    
+  <!-- Define all the background tasks that will be used to receive messages -->
+  <Scripting.RegisteredDataSources>
+    <DataSources>
+      <!-- Microsoft Message Queue Datasource -->
+      <DataSource name="MicrosoftMessageQueue" classname="DM.Library.MessageQ.MsMqDataSource" assembly="DM.Library.dll"></DataSource>
+    </DataSources>
+  </Scripting.RegisteredDataSources>
+
+  <!-- ********************** EVERYTHING BELOW THIS LINE SHOULD BE LEFT AT THERE DEFAULT SETTINGS ******************** -->
+
+  <!-- ********************** APPLICATION LOGGING **************************************** -->
+  <BitFactory.Logging name="global" xmlns="http://BitFactory.Logging">
+    <compositeLoggers>
+      <compositeLogger name="GlobalRollingFiles" isAsynchronous="true">
+
+        <rollingDateFileLoggers>
+          <rollingDateFileLogger name="myRollingFileLogger1" isEnabled="true" formattedFileName="DM_{timestamp:yyyyMMdd}.log" maxFilesToKeep="10" autoDelete="true" severity="Debug" />
+        </rollingDateFileLoggers>
+
+      </compositeLogger>
+    </compositeLoggers>
+  </BitFactory.Logging>
+
+  <!-- ********************** SERVICE MODEL: REST API CONFIGURATION ********************** -->
+  <system.serviceModel>
+
+    <extensions>
+      <behaviorExtensions>
+        <add name="crossOriginResourceSharingBehavior" type="DM.Service.EnableCrossOriginResourceSharingBehavior, DM.Service, Version=1.0.0.0, Culture=neutral" />
+        <add name="webHttpJson" type="DM.Service.WebHttpNewtonJsonElement, DM.Service" />
+      </behaviorExtensions>
+    </extensions>
+
+    <services>
+      <service name="DM.Service.DispatchManagementControlProcessor" behaviorConfiguration="ControlProcessorBehavior">
+        <clear />
+        <endpoint address="http://localhost:8000/api" binding="webHttpBinding" bindingConfiguration="ControlProcessorBinding" behaviorConfiguration="RestEndpointBehavior" contract="DM.Library.Domain.Interfaces.IDispatchManagementControl">          
+        </endpoint>
+      </service>
+    </services>
+
+    <bindings>
+      <webHttpBinding>
+        <binding name="ControlProcessorBinding"
+                 contentTypeMapper="DM.Service.WCFExtensions.RestRawContentTypeMapper, DM.Service"
+                 maxReceivedMessageSize="2147483647" 
+                 maxBufferSize="2147483647">
+          <readerQuotas maxArrayLength="655360000" maxDepth="655360000" maxBytesPerRead="655360000" maxNameTableCharCount="655360000" maxStringContentLength="655360000" />
+        </binding>
+      </webHttpBinding>
+    </bindings>
+
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="RestEndpointBehavior">
+          <webHttp automaticFormatSelectionEnabled="false" defaultOutgoingResponseFormat="Json" helpEnabled="false" />
+          <dataContractSerializer maxItemsInObjectGraph="2147483646" />
+          <crossOriginResourceSharingBehavior />
+          <webHttpJson enableStringEnumConverter="true" enableIsoDateTimeConverter="true" />
+        </behavior>
+      </endpointBehaviors>
+      <serviceBehaviors>
+        <behavior name="ControlProcessorBehavior">
+          <dataContractSerializer maxItemsInObjectGraph="2147483646" />
+          <serviceThrottling maxConcurrentCalls="150" maxConcurrentSessions="150" maxConcurrentInstances="150" />
+        </behavior>
+        <behavior name="ControlProcessorServiceBehavior">
+          <dataContractSerializer maxItemsInObjectGraph="2147483646" />
+          <serviceThrottling maxConcurrentCalls="150" maxConcurrentSessions="150" maxConcurrentInstances="150" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    
+  </system.serviceModel>
+
+  
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /></startup>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-10.0.0.0" newVersion="10.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

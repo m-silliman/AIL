@@ -1,8 +1,0 @@
-[DM.ScriptEditor.exe] - [1] - [ScriptEngine] - [Debug] - [9/11/2019 9:30:06 AM] - Searching folder: .\DynamicDll
-[DM.ScriptEditor.exe] - [1] - [ScriptEngine] - [Error] - [9/11/2019 9:30:06 AM] - Folder .\DynamicDll not found
-[DM.ScriptEditor.exe] - [1] - [ScriptEngine] - [Debug] - [9/11/2019 9:35:03 AM] - Searching folder: .\DynamicDll
-[DM.ScriptEditor.exe] - [1] - [ScriptEngine] - [Error] - [9/11/2019 9:35:03 AM] - Folder .\DynamicDll not found
-[DM.ScriptEditor.exe] - [10] - [ScriptEngine] - [Info] - [9/11/2019 9:35:19 AM] - CreateInstance: DM.Library.GeneratedScripts.First_Event
-[DM.ScriptEditor.exe] - [10] - [ScriptEngine] - [Debug] - [9/11/2019 9:35:19 AM] - Retreived Compiled: First_Event.DispatchMessage with haskey: 26847985
-[DM.ScriptEditor.exe] - [1] - [ScriptEngine] - [Debug] - [9/11/2019 9:37:02 AM] - Searching folder: .\DynamicDll
-[DM.ScriptEditor.exe] - [1] - [ScriptEngine] - [Error] - [9/11/2019 9:37:02 AM] - Folder .\DynamicDll not found

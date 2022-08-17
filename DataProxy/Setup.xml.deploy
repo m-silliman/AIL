@@ -1,21 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ProxyConfiguration>
   <Servers>
-    <!-- Live Data -->
-    <Server OpcServerPath="opcda://localhost/Kepware.KEPServerEX.V6" WatchItemPath="_System._Time_Second" RestartAfter="30" Alias="Kepware" RefreshRateMs="50" />
-
+    <Server OpcServerPath="opcda://localhost/Kepware.KEPServerEX.V6" WatchItemPath="_System._Time_Second" RestartAfter="10" Alias="Kepware"/>
+    
+    <!-- Server OpcServerPath="opcda://localhost/Kepware.KEPServerEX.V6" WatchItemPath="_System._Time_Second" RestartAfter="10" Alias="Kepware2"/ -->
+    <!-- Server OpcServerPath="opcda://osw-cashww01/ArchestrA.DASSIDirect.2" Alias="Wastewater"/ -->
+    
   </Servers>
 
   <!--
    Define your OPC tags that by the scripts and data change condition scripts. 
-   Each tag is accessible by 'ReadTag' + 'WriteTag' using the alias name.  The 
+   Each tag is accessible by 'ReadTag' + 'WriteTag' using the alias name.  The
    alias is intended for readiblity and shorthand within the scripts.
    -->
   <Tags>
 
-    <!-- Put heartbeat in cache -->
-    <Tag ServerAlias="Kepware" ItemPath="_System._Time_Second" Alias="Heartbeat" Set="All"/>
-    
     <!-- Setup the simulation slide -->
     <Tag ServerAlias="Kepware" ItemPath="Simulation Examples.Functions.Ramp1" Alias="Ramp1"  Set="Simulation"/>
     <Tag ServerAlias="Kepware" ItemPath="Simulation Examples.Functions.Ramp2" Alias="Ramp2"  Set="Simulation"/>
@@ -40,7 +39,7 @@
     <Tag ServerAlias="Kepware" ItemPath="Simulation Examples.Events.DataEvent2" Alias="DataEvent2"  Set="Events"/>
     <Tag ServerAlias="Kepware" ItemPath="Simulation Examples.Events.DataEvent3" Alias="DataEvent3"  Set="Events"/>
     <Tag ServerAlias="Kepware" ItemPath="Simulation Examples.Events.DataEvent4" Alias="DataEvent4"  Set="Events"/>
-	
-  </Tags>                    
+
+  </Tags>
 
 </ProxyConfiguration>

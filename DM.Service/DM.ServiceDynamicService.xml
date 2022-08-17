@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DynamicServiceConfig>
+  <ServiceName>DM.Service</ServiceName>
+  <Description>AiL Service</Description>
+  <Manual>true</Manual>
+  <Username> </Username>
+  <Password></Password>
+  <ApplicationToRun>DM.Service.exe</ApplicationToRun>
+  <AccountType>LocalSystem</AccountType>
+</DynamicServiceConfig>
